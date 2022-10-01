@@ -5,106 +5,106 @@
       <el-row class="outer-row">
         <!-- 左上一列 -->
         <el-col class="outer-left" :span="18">
-          <div class="grid-content">
-            <el-row>
-              <el-col :span="13">
-                <div class="box home-sku-sale-stats bgc1">
-                  <div class="header">
-                    <div class="title">
-                      工单统计
-                      <span class="sub-title">2022.09.01 ~ 2022.09.27</span>
+          <!-- <div class="grid-content"> -->
+          <el-row>
+            <el-col :span="13">
+              <div class="box home-sku-sale-stats bgc1">
+                <div class="header">
+                  <div class="title">
+                    工单统计
+                    <span class="sub-title">2022.09.01 ~ 2022.09.27</span>
+                  </div>
+                </div>
+                <div class="body">
+                  <div class="stats">
+                    <div class="item">
+                      <div class="num color1 text-shadow1">
+                        {{ userTask.total }}
+                      </div>
+                      <div class="text color2">工单总数（个）</div>
                     </div>
                   </div>
-                  <div class="body">
-                    <div class="stats">
-                      <div class="item">
-                        <div class="num color1 text-shadow1">
-                          {{ userTask.total }}
-                        </div>
-                        <div class="text color2">工单总数（个）</div>
+                  <div class="stats">
+                    <div class="item">
+                      <div class="num color1 text-shadow1">
+                        {{ userTask.progressTotal }}
                       </div>
+                      <div class="text color2">完成工单（个）</div>
                     </div>
-                    <div class="stats">
-                      <div class="item">
-                        <div class="num color1 text-shadow1">
-                          {{ userTask.progressTotal }}
-                        </div>
-                        <div class="text color2">完成工单（个）</div>
+                  </div>
+                  <div class="stats">
+                    <div class="item">
+                      <div class="num color1 text-shadow1">
+                        {{ userTask.workCount }}
                       </div>
+                      <div class="text color2">进行工单（个）</div>
                     </div>
-                    <div class="stats">
-                      <div class="item">
-                        <div class="num color1 text-shadow1">
-                          {{ userTask.workCount }}
-                        </div>
-                        <div class="text color2">进行工单（个）</div>
+                  </div>
+                  <div class="stats">
+                    <div class="item">
+                      <div class="num color1 text-shadow1">
+                        {{ userTask.cancelCount }}
                       </div>
-                    </div>
-                    <div class="stats">
-                      <div class="item">
-                        <div class="num color1 text-shadow1">
-                          {{ userTask.cancelCount }}
-                        </div>
-                        <div class="text color2">取消工单（个）</div>
-                      </div>
+                      <div class="text color2">取消工单（个）</div>
                     </div>
                   </div>
                 </div>
-              </el-col>
-              <el-col :span="11">
-                <div class="box home-sku-sale-stats bgc2">
-                  <div class="header">
-                    <div class="title">
-                      销售统计
-                      <span class="sub-title">2022.09.01 ~ 2022.09.27</span>
+              </div>
+            </el-col>
+            <el-col :span="11">
+              <div class="box home-sku-sale-stats bgc2">
+                <div class="header">
+                  <div class="title">
+                    销售统计
+                    <span class="sub-title">2022.09.01 ~ 2022.09.27</span>
+                  </div>
+                </div>
+                <div class="body">
+                  <div class="stats">
+                    <div class="item">
+                      <div class="num color3 text-shadow2">
+                        {{ orderCount }}
+                      </div>
+                      <div class="text color4">订单量（个）</div>
                     </div>
                   </div>
-                  <div class="body">
-                    <div class="stats">
-                      <div class="item">
-                        <div class="num color3 text-shadow2">
-                          {{ orderCount }}
-                        </div>
-                        <div class="text color4">订单量（个）</div>
+                  <div class="stats">
+                    <div class="item">
+                      <div class="num color3 text-shadow2">
+                        {{ orderAmount }}
                       </div>
-                    </div>
-                    <div class="stats">
-                      <div class="item">
-                        <div class="num color3 text-shadow2">
-                          {{ orderAmount }}
-                        </div>
-                        <div class="text color4">销售额（万元）</div>
-                      </div>
+                      <div class="text color4">销售额（万元）</div>
                     </div>
                   </div>
                 </div>
-              </el-col>
-            </el-row>
-            <!-- 左下部分 -->
-            <div class="box sku-sale-collect">
-              <div class="header">
-                <div class="title">
-                  销售数据
-                  <span class="sub-title">2022.09.26 ~ 2022.09.28</span>
-                </div>
-                <div class="week-month-year">
-                  <div
-                    v-for="(way,index) in theWays"
-                    :key="index"
-                    :class="['item',{'is-checked':index===(!checkedIndex ? 0:checkedIndex)}]"
-                    @click="changeSaleStat(index)"
-                  >{{ way }}</div>
-                  <!-- <div class="item is-checked">周</div>
+              </div>
+            </el-col>
+          </el-row>
+          <!-- 左下部分 -->
+          <div class="box sku-sale-collect">
+            <div class="header">
+              <div class="title">
+                销售数据
+                <span class="sub-title">2022.09.26 ~ 2022.09.28</span>
+              </div>
+              <div class="week-month-year">
+                <div
+                  v-for="(way,index) in theWays"
+                  :key="index"
+                  :class="['item',{'is-checked':index===(!checkedIndex ? 0:checkedIndex)}]"
+                  @click="changeSaleStat(index)"
+                >{{ way }}</div>
+                <!-- <div class="item is-checked">周</div>
                   <div class="item">月</div>
                   <div class="item">年</div> -->
-                </div>
-              </div>
-              <div class="charts">
-                <div ref="left" class="chart" style="height:100%">左</div>
-                <div ref="right" class="chart" style="height:100%">右</div>
               </div>
             </div>
+            <div class="charts">
+              <div ref="left" class="chart" style="height:100%">左</div>
+              <div ref="right" class="chart" style="height:118%">右</div>
+            </div>
           </div>
+          <!-- </div> -->
         </el-col>
 
         <!-- 商品热榜 -->
@@ -490,6 +490,9 @@ export default {
           }
         ]
       }
+      window.onresize = function() {
+        myChart.resize()
+      }
       option && myChart.setOption(option)
     },
     drawPieChart() {
@@ -523,6 +526,9 @@ export default {
             data: this.top5
           }
         ]
+      }
+      window.onresize = function() {
+        myChart.resize()
       }
       option && myChart.setOption(option)
     }
@@ -637,7 +643,7 @@ export default {
       // background-color: skyblue;
       .el-col-13,
       .el-col-11 {
-        height: 166px;
+       min-height: 166px;
         padding-left: 10px;
         padding-right: 10px;
       }
@@ -701,9 +707,10 @@ export default {
         .charts {
           flex: 1;
           display: flex;
-
           .chart {
-            flex: 1;
+          flex:1;
+          height: 100%;
+
           }
         }
       }
@@ -818,6 +825,7 @@ export default {
 
       .body {
         flex: 1;
+        display: flex;
         align-items: center;
         margin-left: -10px;
         margin-right: -10px;
